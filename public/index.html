@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hello, socket.io</title>
+  <script src="/jquery-1.7.1.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    $(function() {
+      var socket = io.connect()
+      socket.on('tick', function (data) {
+        var tick = $("<div>").text("hello, " + data.tick)
+        $('body').prepend(tick)
+      });
+    })
+  </script>
+</head>
+<body>
+</body>
+</html>

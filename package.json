@@ -1,6 +1,10 @@
 {
   "name": "hellonode",
   "version": "0.0.1",
+  "engines": {
+    "node": "0.6.12",
+    "npm":  "1.1.4"
+  },
   "dependencies": {
     "express": "2.5.9",
     "socket.io": "0.9.6",

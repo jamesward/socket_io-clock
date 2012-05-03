@@ -1,6 +1,7 @@
 var express = require("express"),
     io      = require("socket.io"),
-    app     = express.createServer(express.logger())
+    app     = express.createServer(express.logger()),
+    moment  = require("moment")
 
 app.use(express.static(__dirname + "/public"))
 
@@ -13,7 +14,7 @@ socket.configure(function () {
 
 socket.sockets.on("connection", function (socket) {
   var tick = setInterval(function() {
-    socket.broadcast.emit("tick", {tick: (new Date()).getTime()});
+    socket.broadcast.emit("tick", {time: moment().format('h:mm:ss a')});
   }, 1000);
 })
  

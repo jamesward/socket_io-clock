@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>hello, socket.io</title>
+  <title>socket.io clock</title>
+  <link rel="stylesheet" media="screen" href="index.css">
   <script src="/jquery-1.7.1.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script>
     $(function() {
       var socket = io.connect()
       socket.on('tick', function (data) {
-        var tick = $("<div>").text("hello, " + data.tick)
-        $('body').prepend(tick)
+        $('#clock').html(data.time.replace(/(\d)/g, '<span>$1</span>'))
       });
     })
   </script>
 </head>
 <body>
+  <h1 id="clock"></h1>
 </body>
 </html>
